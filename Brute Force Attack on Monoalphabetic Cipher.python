@@ -1,0 +1,10 @@
+def brute_force_monoalphabetic(ciphertext):
+    alphabet = string.ascii_lowercase
+    possible_plaintexts = []
+
+    for perm in itertools.permutations(alphabet):
+        mapping = dict(zip(perm, alphabet))
+        plaintext = ''.join(mapping.get(char, char) for char in ciphertext.lower())
+        possible_plaintexts.append(plaintext)
+
+    return possible_plaintexts
